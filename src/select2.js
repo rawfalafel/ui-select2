@@ -33,6 +33,9 @@ angular.module('ui.select2', []).value('uiSelect2Config', {}).directive('uiSelec
         // instance-specific options
         var opts = angular.extend({}, options, scope.$eval(attrs.uiSelect2));
 
+        // allow disabling select2 here
+        if (opts.disable) { return; }
+
         if (isSelect) {
           // Use <select multiple> instead
           delete opts.multiple;
